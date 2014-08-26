@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="Application">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+  <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="./stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="./stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/Application/contextmenu_copypaste.js"></script>
+	<script type="text/javascript" src="js/Application/walk.js"></script>
+	<script type="text/javascript" src="js/Application/app.js"></script>
+</head>
+<body ng-controller="AppCtrl">
+	<div class="apparea">
+		<div id="header">
+			<div class="container">
+				<div class="col col-2-3">
+					<h1>DataEncrypter</h1>
+				</div>
+				<div class="col col-1-3">
+					<a ng-click="close()" href="">&#x2715;</a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+
+			<div class="container">
+				<div class="col col-1-2">
+					&nbsp;
+					<a ng-show="connected" ng-click="upload()" href="">Upload</a><br>
+					<a ng-show="connected" ng-click="disconnect()" href="#">Trennen</a>
+				</div>
+				<div class="col col-1-2">
+					<a ng-show="!connected" ng-click="openConnectDialog()" href="#">Mit service verbinden <img src="img/unconnected.png" alt=""></a>
+					<a ng-show="connected" href="#">Verbunden mit <span>{{ hostname }}</span><img src="img/connected.png" alt=""></a>
+				</div>
+			</div>
+
+			<div class="line"></div>
+
+			<div class="container">
+				<div class="col col-1-3">
+					<h2>1</h2>
+				</div>
+				<div class="col col-2-3">
+					<span id="folderpath">Ordner zum verschlüsseln auswählen</span>
+					<input maxlength="8" id="dirchooser" type="file" nwdirectory ng-hide="true">
+					<button ng-click="choose_folder()">Auswählen</button>
+				</div>
+			</div>
+
+			<div class="line"></div>
+
+			<div class="container">
+				<div class="col col-1-3">
+					<h2>2</h2>
+				</div>
+				<div class="col col-2-3">
+					<textarea rows="4" maxlength="32" ng-value="hash" type="text" placeholder="Passwort"></textarea>
+					<button ng-click="generate_hash()">Generieren lassen</button>
+				</div>
+			</div>
+
+			<div class="container action dark" style="margin-top:20px;">
+				Der Ordner ist:
+				<img id="isOpen" src="img/open.png" alt="">
+				<img id="isNotOpen" src="img/close.png" alt="">
+			</div>
+			<div class="container action">
+				<div class="col col-1-2">
+					<img src="img/open.png" alt="">
+					<button ng-click="decode_folder()">Entschlüsseln</button>
+				</div>
+				<div class="col col-1-2">
+					<img src="img/close.png" alt="">
+					<button ng-click="encode_folder()">Verschlüsseln</button>
+				</div>
+			</div>
+			<div class="container action dark">
+				Beta Version - Hendrik Weiler
+			</div>
+		</div>
+	</div>
+	<div id="pgcontainer" class="progresscontainer">
+		<div class="window" ng-class="servicelogin ? 'big' : ''">
+			<div ng-show="cryption">
+				<div id="pglabel" class="label"><span>text</span></div>
+				<div class="progressbar">
+					<div id="pgbar" class="progressbarinner"></div>
+				</div>
+			</div>
+			<div ng-show="servicelogin">
+				<input ng-init="host='http://95.85.12.63:8080/'" ng-model="host" placeholder="Hostname/URL" type="text">
+				<input ng-init="username='admin'" ng-model="username" placeholder="Benutzername" type="text">
+				<input ng-init="password='admin'" ng-model="password" placeholder="Passwort" type="text">
+				<button ng-click="connectToService()">Verbinden</button>
+				<button ng-click="closeTheDialog()">Abbrechen</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

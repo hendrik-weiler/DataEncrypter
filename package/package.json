@@ -1,0 +1,21 @@
+{
+  "name": "DataCrypter",
+  "description": "Encryption and Decryption of Files",
+  "main": "main.html",
+  "window": {
+    "title" : "DataCrypter",
+    "show": true,
+    "toolbar": true,
+    "frame": true,
+    "position": "center",
+    "width": 600,
+    "height": 760,
+    "min_width": 600,
+    "min_height": 600,
+    "resizable" : false,
+    "icon": "icon.png"
+  },
+  "dependencies": {
+    
+  }
+}
