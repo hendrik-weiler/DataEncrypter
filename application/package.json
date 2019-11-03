@@ -1,0 +1,22 @@
+{
+  "name": "DataEncrypter",
+  "version": "1.0.0",
+  "description": "A program for encryption and decryption of files.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/hendrik-weiler/DataEncrypter",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.0.0"
+  }
+}

@@ -1,0 +1,348 @@
+@font-face {
+    font-family: 'open_sanssemibold';
+    src: url('fonts/opensans-semibold-webfont.woff2') format('woff2'),
+         url('fonts/opensans-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('fonts/opensans-light-webfont.woff2') format('woff2'),
+         url('fonts/opensans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: 'open_sanslight';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.header {
+    overflow: hidden;
+    padding: 10px;
+    padding-bottom: 5px;
+    background: #FFE9C7;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    border-bottom: 1px solid #FFB13A;
+}
+
+.header h4 {
+    font-family: 'open_sanssemibold';
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    color: #FFB13A;
+}
+
+.header img {
+    width: 32px;
+}
+
+.header .col-1 {
+    float: left;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+}
+
+.header .col-2 {
+    float: left;
+    width: 30px;
+    box-sizing: border-box;
+}
+
+.body {
+    background: #F9F9F9;
+    overflow: hidden;
+}
+
+.body .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.body .menu a {
+    display: block;
+    text-decoration: none;
+    padding: 15px 15px;
+    -webkit-user-select: none;
+}
+
+.body .menu a img {
+    vertical-align: middle;
+    width: 36px;
+}
+
+.body .menu a img.active {
+    display: none;
+}
+
+.body .menu a span {
+    vertical-align: middle;
+    font-size: 16px;
+    color: #FFB13A;
+    padding-left: 10px;
+}
+
+.body .menu a:hover {
+    background: #FFE9C7;
+}
+
+.body .menu a:hover span {
+    color: #FFB13A;
+}
+
+.body .menu a:hover img.normal {
+    display: inline;
+}
+
+.body .menu a:hover img.active {
+    display: none;
+}
+
+.body .menu a.active {
+    background: #FFB13A;
+}
+
+.body .menu a.active span {
+    color: #fff;
+}
+
+.body .menu a.active img.normal {
+    display: none;
+}
+
+.body .menu a.active img.active {
+    display: inline;
+}
+
+.body .col-1 {
+    background: #F3F3F3;
+    box-sizing: border-box;
+    float: left;
+    width: 180px;
+    height: calc(100vh - 40px);
+}
+
+.body .col-2 {
+    box-sizing: border-box;
+    float: left;
+    width: calc(100% - 180px);
+    height: calc(100vh - 40px);
+    padding: 10px;
+}
+
+
+.body .col-2 h5 {
+    font-size: 16px;
+    font-family: 'open_sanssemibold';
+    color: #FFB13A;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+}
+
+.body .col-2 p {
+    font-size: 16px;
+    color: #3A3A3A;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+}
+
+.body .border {
+    border-radius: 5px;
+    border: 1px solid #555555;
+    padding: 10px;
+}
+
+.body .textfield {
+    border: 1px solid #D8D8D8;
+    background: white;
+    border-radius: 5px;
+    color: #FFB13A;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: 'open_sanslight';
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+.body .textfield:focus {
+    outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FFB13A;
+  opacity: 1; /* Firefox */
+}
+
+.body .border-head-container {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.body .border-head-container .container-col-1 {
+    float: left;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.body .border-head-container .container-col-2 {
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.center-button {
+    text-align: center;
+}
+
+.button {
+    border-radius: 5px;
+    background: #FFB13A;
+    padding: 5px 50px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-user-select: none;
+}
+
+.button:hover {
+    background: #FFBB53;
+}
+
+.configuration-container {
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.configuration-container .circle {
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ccc;
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.configuration-container span {
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.configuration-container.on .circle {
+    background: #A9FF78;
+}
+
+.configuration-container.on span[data-on] {
+    display: inline;
+}
+
+.configuration-container.on span[data-off] {
+    display: none;
+}
+
+.configuration-container.off .circle {
+    background: #FF7878;
+}
+
+.configuration-container.off span[data-on] {
+    display: none;
+}
+
+.configuration-container.off span[data-off] {
+    display: inline;
+}
+
+.table {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.table .tr {
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid #D8D8D8;
+    height: 33px;
+}
+
+.table .thead {
+    box-sizing: border-box;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.table .tr:last-child {
+    border-bottom: none;
+}
+
+.table .tbody {
+    height: 250px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.table .thead .th,
+.table .tbody .td {
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    border-left: 1px solid #D8D8D8;
+    -webkit-user-select: none;
+}
+
+.table .thead .th:first-child,
+.table .tbody .td:first-child {
+    border-left: none;
+}
+
+.table .c1 {
+    width: 10%;
+    text-align: center;
+}
+
+.table .c1 img {
+    width: 20px;
+}
+
+.table .c2 {
+    width: 70%;
+}
+
+.table .c3 {
+    width: 20%;
+}
+
+.table .c3 .button {
+    padding: 3px 10px;
+    font-size: 14px;
+}
