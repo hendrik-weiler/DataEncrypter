@@ -11,9 +11,17 @@ window.addEventListener('DOMContentLoaded', () => {
 	if (fs.existsSync(filepath)) {
 		let rawdata = fs.readFileSync(filepath);
 		let settings = JSON.parse(rawdata);
+		console.log(settings)
 
 		$('[name=host]').val(settings.hostname);
 		$('[name=username]').val(settings.username);
+
+		$.get(settings.hostname + 'api/checkSession?session=' + settings.session, function(result) {
+			console.log(result)
+			if(result==1) {
+				$('.configuration-container').removeClass('off').addClass('on');
+			}
+		});
 	} else {
 		let settings = { 
 		    hostname: '',
@@ -28,12 +36,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	$('.saveSettings').click(function() {
 		// perform authentication to receive session
 		$.ajax({
-			url : $('[name=host]').val() + "api/connect",
-			type : 'post',
-			data : {
-				username : $('[name=username]').val(),
-				password : $('[name=password]').val()
-			},
+			url : $('[name=host]').val() + "api/login?username=" + $('[name=username]').val() + '&password=' + $('[name=password]').val(),
+			type : 'get',
 			success : function(result) {
 				if(result != '') {
 					// get session
@@ -43,14 +47,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
 					let settings = { 
 						username : $('[name=username]').val(),
-						password : $('[name=password]').val(),
+						hostname : $('[name=host]').val(),
 					    session: session
 					};
 					 
 					let data = JSON.stringify(settings);
 					fs.writeFileSync(filepath, data);
+
+					$.get(settings.hostname + 'api/checkSession?session=' + settings.session, function(result) {
+						console.log(result)
+						if(result==1) {
+							$('.configuration-container').removeClass('off').addClass('on');
+						}
+					});
+
+					$('[name=password]').val('');
 				}
-				$scope.$apply();
 			},
 			xhrFields: {
 				withCredentials: true
